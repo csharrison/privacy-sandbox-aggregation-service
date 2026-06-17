@@ -68,6 +68,7 @@ go_library(
         ":standardencrypt",
         "//shared:reporttypes",
         "//shared:utils",
+        "//third_party/golang/google_api/option",
         "@com_github_google_tink_go//aead:go_default_library",
         "@com_github_google_tink_go//core/registry:go_default_library",
         "@com_github_google_tink_go//integration/gcpkms:go_default_library",
@@ -197,7 +198,7 @@ go_library(
     srcs = ["distributednoise.go"],
     importpath = "github.com/google/privacy-sandbox-aggregation-service/encryption/distributednoise",
     deps = [
-        "@org_gonum_v1_gonum//floats:go_default_library",
+        "@org_gonum_v1_gonum//floats:go_default_library/scalar",
         "@org_gonum_v1_gonum//stat/distuv:go_default_library",
     ],
 )
@@ -209,6 +210,6 @@ go_test(
     embed = [":distributednoise"],
     deps = [
         "@com_github_grd_stat//:go_default_library",
-        "@org_gonum_v1_gonum//floats:go_default_library",
+        "@org_gonum_v1_gonum//floats:go_default_library/scalar",
     ],
 )
